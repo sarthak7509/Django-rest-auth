@@ -6,7 +6,7 @@ from django.conf import settings
 # Create your models here.
 
 class UserManger(BaseUserManager):
-    '''Mange Users'''
+    '''Mange Users to create'''
     def create_user(self,email,password=None,**kwargs):
         if not email:
             raise ValueError('User must have email')
@@ -29,3 +29,15 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     objects = UserManger()
     USERNAME_FIELD = 'email'
+
+class Blog(models.Model):
+    '''Blog structure'''
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    likes = models.IntegerField(null=True)
+    def __str__(self) -> str:
+        return self.Title
