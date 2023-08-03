@@ -1,4 +1,4 @@
 *.env
-blog/
-documents/
-medfed/
+blog
+documents
+medfed
