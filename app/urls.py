@@ -22,9 +22,5 @@ urlpatterns = [
     path('api/schema/',SpectacularAPIView.as_view(),name='api-schema'),
     path('api/docs',SpectacularSwaggerView.as_view(url_name='api-schema'),name='api-docs'),
     path('api/user/',include('user.urls')),
-<<<<<<< HEAD
     path('api/blog',include('blog.urls'))
-=======
-    path('api/',include('medfed.urls'))
->>>>>>> 050143de0ed6712ea9e8a8af91474bf5301304b2
 ]
